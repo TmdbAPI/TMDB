@@ -30,17 +30,15 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "#"
+      "url": "https://github.com/Omotunde2005/abstractpython"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": []
-    },
-    {
-      "group": "APIs",
-      "pages": []
+      "pages": [
+        "introduction"
+      ]
     }
   ],
   
