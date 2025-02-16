@@ -23,13 +23,6 @@
               "errors",
               "rate_limit"
             ]
-          },
-          {
-            "group": "Endpoints",
-            "openapi": {
-              "source": "/api-reference/open-api.yaml",
-              "directory": "/api-reference"
-            }
           }
         ]
       },
@@ -39,7 +32,7 @@
           {
             "group": "Endpoints",
             "openapi": {
-              "source": "/api-reference/open-api.yaml",
+              "source": "/api-reference/openapi.yaml",
               "directory": "api-reference"
             }
           }
