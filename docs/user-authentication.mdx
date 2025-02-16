@@ -1,0 +1,56 @@
+---
+title: User authentication
+description: Learn how to authenticate TMDB users within your application.
+icon: "play"
+---
+
+## How it works
+
+User authentication is one of the authentication methods available to developers. It allows our users to access, edit, or write to their account directly from your app. 
+The steps on how to do this are outlined in this guide. Read more about other authentication methods [here]().
+
+
+
+### Step 1: Create a request token
+A request token is a temporary token that is required to ask a TMDB user for permission to access their account. This token will auto expire after 60 minutes if it's not used.
+It will be used to request a user's permission to access their TMDB account. You will be issued a `session-id` that can now be used to write user data if the permission is granted. 
+
+The [create request token]() endpoint is used to generate a request token.
+
+### Step 2: Authenticate the request token
+The request token created in the previous step needs to be authenticated before it can be used to generate a `session_id`. With a request token in hand, forward your user to the 
+following URL:
+
+```
+https://www.themoviedb.org/authenticate/{REQUEST_TOKEN}
+```
+You can also pass this URL a `redirect_to` parameter, ie:
+
+```
+https://www.themoviedb.org/authenticate/{REQUEST_TOKEN}?redirect_to=http://www.yourapp.com/approved
+```
+
+This url will open up a page on the TMDB website requesting their permission to grant your app access to their account. Once the user has approved, 
+they will either be redirected to the URL you specified in the `redirect_to` parameter or to the `/authenticate/allow` path on TMDB.
+
+
+### Step 3: Create a session id
+The [create session id]() endpoint is used to create a new session id for a user. By calling the new session method with the request token that has been approved by the user, 
+we will return a new `session_id`. This is the session that can now be used to perform actions on behalf of the user such as, rate movies, create lists, etc. 
+You should treat this key like a password and keep it secret.
+
+
+## Alternative method
+
+You can also validate a `request_token` using the user's account credentials (username and password). This will replace *Step 2* above. 
+Not all application have access to a web view so this can be used as a substitute. The [validate request token (with Login)]() endpoint is used to do this and it requires
+the TMDB user's account username and password. 
+
+The validated token will be returned in the response and can be used in Step 3 above.
+
+<Note>The preferred method of validating a request token is to have a user authenticate the request via the TMDB website. However, If you decide to use this method
+please use HTTPS.</Note>
+
+
+
+

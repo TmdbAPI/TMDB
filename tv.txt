@@ -1,0 +1,117 @@
+*****response*****
+
+adult:
+    type: boolean
+    example: false
+    description: Indicates if the TV show contains adult content (true or false)
+backdrop_path:
+    type: string
+    example: /5hS2OIuZSKGkR8R5l3bY5zh04Ce.jpg
+    description: Path to the TV show's backdrop path
+first_air_date:
+    type: string
+    example: '2006-10-05'
+    description: The release date of the TV show's first episode.
+genre_ids:
+    type: array
+    items:
+    type: number
+    example: 16
+    description: List of genre IDs associated with the TV show
+    example:
+    - 16
+    - 10765
+    - 10759
+    - 18
+id:
+    type: number
+    example: 31724
+    description: A unique identifier for the TV show
+name:
+    type: string
+    example: 'Code Geass: Lelouch of the Rebellion'
+    description: The TV show's name
+origin_country:
+    type: array
+    items:
+    type: string
+    example: JP
+    description: The list of countries where the TV show was originally produced.
+    example:
+    - JP
+original_language:
+    type: string
+    example: ja
+    description: The TV show's original language code (e.g, "ja" for Japanese)
+original_name:
+    type: string
+    example: コードギアス 反逆のルルーシュ
+    description: The original name/title of the TV show
+overview:
+    type: string
+    example: >-
+    Japan has been invaded and conquered by the
+    Britannian Empire. Japan is now known as Area 11 and
+    its citizens known as Elevens. The Britannian Empire
+    takes away Japan's autonomous power and imposes its
+    rule through the use of Knightmares. The Empire's
+    rule has never faltered, but cracks have begun to
+    show...
+    description: Brief summary or description of the TV show.
+popularity:
+    type: number
+    example: 161.186
+    description: A numeric value that represents the TV show's popularity.
+poster_path:
+    type: string
+    example: /2cBDhzbP7KOLbWtTzxS4WIDLh70.jpg
+    description: The path to the TV show's poster image
+vote_average:
+    type: number
+    example: 8.372
+    description: Average user rating for the TV show on a scale of 1-10
+vote_count:
+    type: number
+    example: 740
+    description: The total number of user votes for the TV show.
+
+
+*****example*****
+- adult: false
+backdrop_path: /5hS2OIuZSKGkR8R5l3bY5zh04Ce.jpg
+first_air_date: '2006-10-05'
+genre_ids:
+    - 16
+    - 10765
+    - 10759
+    - 18
+id: 31724
+name: 'Code Geass: Lelouch of the Rebellion'
+origin_country:
+    - JP
+original_language: ja
+original_name: コードギアス 反逆のルルーシュ
+overview: >-
+    Japan has been invaded and conquered by the Britannian
+    Empire. Japan is now known as Area 11 and its citizens
+    known as Elevens. The Britannian Empire takes away
+    Japan's autonomous power and imposes its rule through
+    the use of Knightmares. The Empire's rule has never
+    faltered, but cracks have begun to show...
+popularity: 161.186
+poster_path: /2cBDhzbP7KOLbWtTzxS4WIDLh70.jpg
+vote_average: 8.372
+vote_count: 740
+
+
+
+
+
+
+
+
+
+
+                        media_type:
+                          type: string
+                          example: tv

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "The Movie Database API",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "authentication",
+              "user-authentication",
+              "account-id",
+              "errors",
+              "rate_limit"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "openapi": {
+              "source": "/api-reference/open-api.yaml",
+              "directory": "/api-reference"
+            }
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "Endpoints",
+            "openapi": {
+              "source": "/api-reference/open-api.yaml",
+              "directory": "api-reference"
+            }
+          }
+        ]
+
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://github.com/Omotunde2005/abstractpython",
+          "icon": "book-open-cover"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Contact",
+        "href": "mailto:edunrilwan@gmail.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Contribute",
+      "href": "https://github.com/Omotunde2005/abstractpython"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/emiloju_py",
+      "github": "https://github.com/Omotunde2005",
+      "linkedin": "https://www.linkedin.com/in/edun-rilwan/"
+    }
+  }
+}
