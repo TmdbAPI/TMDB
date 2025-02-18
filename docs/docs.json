@@ -14,11 +14,38 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "The Basics",
             "pages": [
-              "introduction"
+              "overview",
+              "popularity"
+            ]
+          },
+          {
+            "group": "Using the API",
+            "pages": [
+              "append_to_response",
+              "search",
+              "finding_data",
+              "languages",
+              "regions"
+              
+            ]
+          },
+          {
+            "group": "Images",
+            "pages": [
+              "image_basics",
+              "image_language"              
+            ]
+          },
+          {
+            "group": "Miscellaneous",
+            "pages": [
+              "roadmap",
+              "faq"
             ]
           }
+
         ]
       },
       {
@@ -27,15 +54,15 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction", 
+              "api-reference/introduction", 
               {
-                "group": "Authetication",
+                "group": "Authentication",
                 "icon": "lock",
-                "pages": ["authentication", "user-authentication"]
+                "pages": ["api-reference/authentication", "api-reference/user-authentication"]
               },
-              "errors",
-              "account-id",
-              "rate_limit"
+              "api-reference/errors",
+              "api-reference/account-id",
+              "api-reference/rate_limit"
             ]
           },
           {
@@ -52,7 +79,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "Github repo",
           "href": "https://github.com/Omotunde2005/abstractpython",
           "icon": "book-open-cover"
         }
