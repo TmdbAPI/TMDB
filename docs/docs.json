@@ -16,12 +16,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
-              "authentication",
-              "user-authentication",
-              "account-id",
-              "errors",
-              "rate_limit"
+              "introduction"
             ]
           }
         ]
@@ -29,6 +24,20 @@
       {
         "tab": "API reference",
         "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction", 
+              {
+                "group": "Authetication",
+                "icon": "lock",
+                "pages": ["authentication", "user-authentication"]
+              },
+              "errors",
+              "account-id",
+              "rate_limit"
+            ]
+          },
           {
             "group": "Endpoints",
             "openapi": {

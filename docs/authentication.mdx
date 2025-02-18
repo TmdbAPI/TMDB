@@ -1,10 +1,10 @@
 ---
-title: Authentication
+title: Authentication methods
 description: Learn how to authenticate your app with the API.
-icon: "play"
+icon: "key"
 ---
 
-There are three ways to authenticate with The Movie Database (TMDB) API. They include the following:
+There are three ways to authenticate your app with The Movie Database (TMDB) API. They include the following:
 
 1. Application level authentication (Default method).
 2. User authentication.
@@ -19,7 +19,7 @@ You can authenticate with either your `api_key`, or by using your `access_token`
 
 ### Access Token
 
-The default method to authenticate is with your access token. This token is expected to be sent along as an Authorization header. 
+The default method to authenticate is with your `access_token`. This token is expected to be sent along as an Authorization header. 
 A simple cURL example using this method looks like the following:
 
 ```cURL
@@ -31,8 +31,8 @@ curl --request GET \
 
 ### API Key
 
-The `api_key` is the second authentication method. Although, it cannot be used for all endpoints. 
-Use the `api_key` over the access token only when you really need to. For example, the [endpoint]() endpoint requires an API Key. 
+The API Key is the second authentication method. Although, it cannot be used for all endpoints. 
+Use the `api_key` over the `access_token` only when you really need to. For example, the [Get account details]() endpoint uses an API Key. 
 A simple cURL example using the `api_key` looks like the following:
 
 ```cURL
@@ -44,8 +44,9 @@ curl --request GET \
 ## User authentication
 
 You can authenticate TMDB users within your application to extend the TMDB experience within your application. This will let your users (who also have an account with us) do things like rate movies, 
-maintain their favourite and watch lists as well as do things like create and edit custom lists, all while staying in sync with their account on TMDB. User authentication is 
-controlled with a `session_id` query parameter. Read this [guide]() to see how to generate a `session_id`.
+maintain their favourite and watch lists as well as do things like create and edit custom lists, all while staying in sync with their account on TMDB. 
+
+User authentication is controlled with a `session_id` query parameter. Read this [guide]() to see how to generate a `session_id`.
 
 After getting the `session_id`, use it as a query parameter in each endpoint as seen in the code below:
 
@@ -55,6 +56,7 @@ curl --request GET \
      --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies'
 ```
 
+<Note>You should treat this key like a password and keep it secret.</Note>
 
 ## Guest sessions
 
@@ -86,5 +88,5 @@ Guest seesions can only be used with the following endpoints:
 ![The Movie Database(TMDB) API application form](./images/form.png)
 
 
-After submitting the application, you will be presented with both your API key and Bearer token as seen below:
+After submitting the application, you can access both your API key and Bearer token as seen below:
 ![The Movie Database(TMDB) API application form](./images/tmdb_final.jpeg)
