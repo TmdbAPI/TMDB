@@ -28,7 +28,6 @@
               "finding_data",
               "languages",
               "regions"
-              
             ]
           },
           {
@@ -60,6 +59,7 @@
                 "icon": "lock",
                 "pages": ["api-reference/authentication", "api-reference/user-authentication"]
               },
+              "api-reference/response",
               "api-reference/errors",
               "api-reference/account-id",
               "api-reference/rate_limit"
@@ -79,8 +79,8 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Github repo",
-          "href": "https://github.com/Omotunde2005/abstractpython",
+          "anchor": "Authored By",
+          "href": "https://github.com/Omotunde2005/",
           "icon": "book-open-cover"
         }
       ]
@@ -100,7 +100,7 @@
     "primary": {
       "type": "button",
       "label": "Contribute",
-      "href": "https://github.com/Omotunde2005/abstractpython"
+      "href": "https://github.com/Omotunde2005/"
     }
   },
   "footer": {

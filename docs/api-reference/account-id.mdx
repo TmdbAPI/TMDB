@@ -11,7 +11,7 @@ Account ID is a unique identifier for an account on TMDB. It is required to add 
 There are two ways to get an Account ID. You can either get an Account ID directly as an application, or on behalf of a TMDB user in your app. 
 
 ### As an application
-Get your application's `api_key` and `access_token`, then send a `GET` request to [Get account details]() to retrieve your Account ID from the response object.
+Get your application's `api_key` and `access_token`, then send a `GET` request to [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) to retrieve your Account ID from the response object.
 Below is an example:
 
 ```bash Example
@@ -24,7 +24,7 @@ curl --request GET \
 Follow the steps below to retrieve the Account ID for a TMDB user within your app:
 
 1. Generate a unique `session_id` for the user. See how to generate a `session_id` [here]().
-2. Send a `GET` request to the [Get account details]() endpoint, and add the `session_id` as a query parameter. Here is an example below:
+2. Send a `GET` request to the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint and add the `session_id` as a query parameter. Here is an example below:
 
 ```bash Example
 curl --request GET \
@@ -32,4 +32,4 @@ curl --request GET \
      --header 'Authorization: Bearer <your-access-token e.g eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies>'
 ```
 
-The Account ID will be included in the response object as seen in the [Get account details]() endpoint. 
+The Account ID will be included in the response object as seen in the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint. 

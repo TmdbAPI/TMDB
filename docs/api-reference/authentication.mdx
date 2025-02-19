@@ -32,7 +32,7 @@ curl --request GET \
 ### API Key
 
 The API Key is the second authentication method. Although, it cannot be used for all endpoints. 
-Use the `api_key` over the `access_token` only when you really need to. For example, the [Get account details]() endpoint uses an API Key. 
+Use the `api_key` over the `access_token` only when you really need to. For example, the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint uses an API Key. 
 A simple cURL example using the `api_key` looks like the following:
 
 ```bash Example
@@ -46,7 +46,7 @@ curl --request GET \
 You can authenticate TMDB users within your application to extend the TMDB experience within your application. This will let your users (who also have an account with us) do things like rate movies, 
 maintain their favourite and watch lists as well as do things like create and edit custom lists, all while staying in sync with their account on TMDB. 
 
-User authentication is controlled with a `session_id` query parameter. Read this [guide]() to see how to generate a `session_id`.
+User authentication is controlled with a `session_id` query parameter. Read this [guide](https://emiloju.mintlify.app/api-reference/user-authentication) to see how to generate a `session_id`.
 
 After getting the `session_id`, use it as a query parameter in each endpoint as seen in the code below:
 
@@ -61,15 +61,9 @@ curl --request GET \
 ## Guest sessions
 
 Guest sessions are a second type of user authentication. They have limited permissions as they can only rate a movie, TV show and TV episode. 
-Creating a guest session is as simple as calling the [new guest session method](https://developer.themoviedb.org/reference/authentication-create-guest-session).
+Creating a guest session is as simple as calling the [new guest session method](https://emiloju.mintlify.app/api-reference/authentication/create-guest-session).
 
 Just like a fully authorized user session, guest sessions should be kept private as they tie a session within your application to a single token. 
-Guest seesions can only be used with the following endpoints:
-
-1. [Get rated movies](https://developer.themoviedb.org/reference/guest-session-rated-movies).
-2. [Get rated TV shows](https://developer.themoviedb.org/reference/guest-session-rated-tv).
-3. [Get rated TV episodes](https://developer.themoviedb.org/reference/guest-session-rated-tv-episodes)
-
 
 ## How to get authentication credentials (API key and bearer token)
 

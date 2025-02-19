@@ -7,7 +7,7 @@ icon: "user"
 ## How it works
 
 User authentication is one of the authentication methods available to our API users. It allows our application's users to access, edit, or write to their account directly from your app. 
-The steps on how to do this are outlined in this guide. Read more about other authentication methods [here]().
+The steps on how to do this are outlined in this guide. Read more about other authentication methods [here](https://emiloju.mintlify.app/api-reference/authentication).
 
 
 
@@ -17,7 +17,7 @@ It will be used to request a user's permission to access their TMDB account.
 
 You will be issued a `session-id` that can now be used to write user data if the permission is granted. 
 
-The [create request token]() endpoint is used to generate a `request_token`.
+The [create request token](https://emiloju.mintlify.app/api-reference/authentication/create-request-token) endpoint is used to generate a `request_token`.
 
 ### Step 2: Authenticate the request token
 The `request_token` created in the previous step needs to be authenticated before it can be used to generate a `session_id`. With a `request_token` in hand, forward your user to the 
@@ -37,7 +37,7 @@ they will either be redirected to the URL you specified in the `redirect_to` par
 
 
 ### Step 3: Create a session id
-The [create session id]() endpoint is used to create a new session id for a user. By calling the new session method with the request token that has been approved by the user, 
+The [create session](https://emiloju.mintlify.app/api-reference/authentication/create-session) endpoint is used to create a new session id for a user. By calling the new session method with the request token that has been approved by the user, 
 we will return a new `session_id`. 
 
 This is the session that can now be used to perform actions on behalf of the user such as, rate movies, create lists, etc. 
@@ -49,7 +49,7 @@ This is the session that can now be used to perform actions on behalf of the use
 
 You can also validate a `request_token` using the user's account credentials (username and password). This will replace *Step 2* above. 
 
-Not all application have access to a web view so this can be used as a substitute. The [validate request token (with Login)]() endpoint is used to do this and it requires
+Not all application have access to a web view so this can be used as a substitute. The [validate request token (with Login)](https://emiloju.mintlify.app/api-reference/authentication/validate-request-token-with-login) endpoint is used to do this and it requires
 the TMDB user's account username and password. 
 
 The validated `request_token` will be returned in the response and can be used in Step 3 above.
