@@ -1,0 +1,43 @@
+---
+title: Popular and Trending.
+description: Understand in details the concept of popularity and trending within the TMDB API.
+icon: "fire"
+---
+
+## Popularity
+Popularity is a fairly important metric here on TMDB. It helps us boost search results, adds an incredibly useful sort value for [discover endpoints](https://emiloju.mintlify.app/api-reference/discover/discover-movies), 
+and is also just kind of fun to see items chart up and down. You can think of popularity as being a "lifetime" score for a movie, tv show, etc that is impacted by 
+the attributes below. 
+
+Each media type builds their popularity value slightly differently. Here are some of the attributes we use to measure the popularity for each media type.
+
+### Movies
+- Number of votes for the day
+- Number of views for the day
+- Number of users who marked it as a "favourite" for the day
+- Number of users who added it to their "watchlist" for the day
+- Release date
+- Number of total votes
+- Previous days score
+
+### TV Shows
+- Number of votes for the day
+- Number of views for the day
+- Number of users who marked it as a "favourite" for the day
+- Number of users who added it to their "watchlist" for the day
+- Next/last episode to air date
+- Number of total votes
+- Previous days score
+
+### People
+- Number of views for the day
+- Previous days score
+
+There is no API to explore this data right now but it is something that would be a lot fun to dig into. The daily file exports do however, 
+contain the popularity data so there is a record of the values starting on April 28, 2017.
+
+## Trending
+Trending is another type of "popularity" score on TMDB but unlike popularity (discussed above), trending's time windows are much shorter (daily, weekly). 
+This helps us surface the relevant content of today (the new stuff) much easier.
+
+Just like popularity, we track trending scores for movies, TV shows and people.
