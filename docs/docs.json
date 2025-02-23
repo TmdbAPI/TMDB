@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "The Movie Database API",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373"
+    "primary": "#01B4E4",
+    "light": "#FFFFFF",
+    "dark": "#032541"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -81,12 +81,12 @@
         {
           "anchor": "OpenAPI spec file",
           "href": "https://github.com/Omotunde2005/",
-          "icon": "book-open-cover"
+          "icon": "file-code"
         },
         {
           "anchor": "Postman collection",
-          "href": "https://github.com/Omotunde2005/",
-          "icon": "book-open-cover"
+          "href": "https://www.postman.com/payload-engineer-85333127/the-movies-database-tmdb-api/collection/xv8ur99/endpoints?action=share&creator=34422222",
+          "icon": "folder"
         }
       ]
     }
@@ -96,12 +96,6 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Contact",
-        "href": "mailto:edunrilwan@gmail.com"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Contribute",

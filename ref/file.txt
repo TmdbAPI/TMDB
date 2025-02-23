@@ -123,4 +123,11 @@ Below is an OpenAPI schema for a user account on TMDB. I want you to help me add
     }
   }
 
+    "links": [
+      {
+        "label": "Contact",
+        "href": "mailto:edunrilwan@gmail.com"
+      }
+    ],
+
 0145215ad484b24c4b3f2ed0f5b77217
