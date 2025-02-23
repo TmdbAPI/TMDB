@@ -79,7 +79,12 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Authored By",
+          "anchor": "OpenAPI spec file",
+          "href": "https://github.com/Omotunde2005/",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Postman collection",
           "href": "https://github.com/Omotunde2005/",
           "icon": "book-open-cover"
         }
@@ -101,13 +106,6 @@
       "type": "button",
       "label": "Contribute",
       "href": "https://github.com/Omotunde2005/"
-    }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/emiloju_py",
-      "github": "https://github.com/Omotunde2005",
-      "linkedin": "https://www.linkedin.com/in/edun-rilwan/"
     }
   }
 }

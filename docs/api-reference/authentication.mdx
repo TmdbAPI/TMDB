@@ -4,83 +4,112 @@ description: Learn how to authenticate your app with the API.
 icon: "key"
 ---
 
+## Overview
+
 There are three ways to authenticate your app with The Movie Database (TMDB) API. They include the following:
 
-1. Application level authentication (Default method).
+1. Application level authentication (ALA) - Default method.
 2. User authentication.
 3. Guest sessions.
 
 
-## Application level authentication
+<Tabs>
+     <Tab title="ALA">
+          Application level authentication would generally be considered the default way of authenticating yourself on the API. 
+          You can authenticate with either your `api_key`, or by using your `access_token` as a bearer token. 
 
-Application level authentication would generally be considered the default way of authenticating yourself on the API. 
-You can authenticate with either your `api_key`, or by using your `access_token` as a bearer token. 
+          ### Access Token
 
+          The default method to authenticate is with your `access_token`. This token is expected to be sent along as an Authorization header. 
+          A simple cURL example using this method looks like the following:
 
-### Access Token
+          ```bash Example
+          curl --request GET \
+               --url 'https://api.themoviedb.org/3/movie/changes' \
+               --header 'Authorization: Bearer <your-access-token e.g eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies>'
+          ```
 
-The default method to authenticate is with your `access_token`. This token is expected to be sent along as an Authorization header. 
-A simple cURL example using this method looks like the following:
+          ### API Key
 
-```bash Example
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/movie/changes' \
-     --header 'Authorization: Bearer <your-access-token e.g eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies>'
-```
+          The API Key is the second authentication method. Although, it cannot be used for all endpoints. 
+          Use the `api_key` over the `access_token` only when you really need to. For example, the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint uses an API Key. 
+          A simple cURL example using the `api_key` looks like the following:
 
+          ```bash Example
+          curl --request GET \
+               --url 'https://api.themoviedb.org/3/movie/changes?api_key=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' 
+          ```
+     </Tab>
 
-### API Key
+     <Tab title="User authentication">
+          You can authenticate TMDB users within your application to extend the TMDB experience within your application. This will let your users (who also have an account with us) do things like rate movies, 
+          maintain their favourite and watch lists as well as do things like create and edit custom lists, all while staying in sync with their account on TMDB. 
 
-The API Key is the second authentication method. Although, it cannot be used for all endpoints. 
-Use the `api_key` over the `access_token` only when you really need to. For example, the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint uses an API Key. 
-A simple cURL example using the `api_key` looks like the following:
+          User authentication is controlled with a `session_id` query parameter. Read this [guide](https://emiloju.mintlify.app/api-reference/user-authentication) to see how to generate a `session_id`.
 
-```bash Example
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/movie/changes?api_key=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' 
-```
+          After getting the `session_id`, use it as a query parameter in each endpoint as seen in the code below:
 
+          ```bash Example
+          curl --request GET \
+               --url 'https://api.themoviedb.org/3/movie/11?session_id=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' \
+               --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies'
+          ```
 
-## User authentication
+          <Note>You should treat this key like a password and keep it secret.</Note>
+     </Tab>
 
-You can authenticate TMDB users within your application to extend the TMDB experience within your application. This will let your users (who also have an account with us) do things like rate movies, 
-maintain their favourite and watch lists as well as do things like create and edit custom lists, all while staying in sync with their account on TMDB. 
+     <Tab title="Guest sessions">
+          Guest sessions are a second type of user authentication. They have limited permissions as they can only rate a movie, TV show and TV episode. 
+          Creating a guest session is as simple as calling the [new guest session method](https://emiloju.mintlify.app/api-reference/authentication/create-guest-session).
 
-User authentication is controlled with a `session_id` query parameter. Read this [guide](https://emiloju.mintlify.app/api-reference/user-authentication) to see how to generate a `session_id`.
+          Just like a fully authorized user session, guest sessions should be kept private as they tie a session within your application to a single token. 
+     </Tab>
+</Tabs>
 
-After getting the `session_id`, use it as a query parameter in each endpoint as seen in the code below:
-
-```bash Example
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/movie/11?session_id=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' \
-     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies'
-```
-
-<Note>You should treat this key like a password and keep it secret.</Note>
-
-## Guest sessions
-
-Guest sessions are a second type of user authentication. They have limited permissions as they can only rate a movie, TV show and TV episode. 
-Creating a guest session is as simple as calling the [new guest session method](https://emiloju.mintlify.app/api-reference/authentication/create-guest-session).
-
-Just like a fully authorized user session, guest sessions should be kept private as they tie a session within your application to a single token. 
 
 ## How to get authentication credentials (API key and bearer token)
 
-1. Login to your TMDB dashboard
-2. Click your profile icon at the top right corner and select settings
-![The Movie Database(TMDB) profile icon](./images/tmdb_select_api.jpeg)
-3. Select the *API* tab on the settings page
-![The Movie Database(TMDB) API tab](./images/tmdb_api_tab.jpeg)
-4. Tap *click here* under *Request an API Key*
-![The Movie Database(TMDB) API request API key](./images/tmdb_request_key.jpeg)
-5. Select the developer option (suitable for starters or non-profit use)
-![The Movie Database(TMDB) API plans](./images/tmdb_sel_dev.jpeg)
-6. Agree to the **Terms of service**
-![The Movie Database(TMDB) terms of service](./images/terms_of_service.png)
-7. Fill in the application form on the new page (you can use any of your social links as the website URL)
-![The Movie Database(TMDB) API application form](./images/form.png)
+<Steps>
+     <Step title="Login to your TMDB dashboard">
+     </Step>
+
+     <Step title="Click your profile icon at the top right corner and select settings">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) profile icon](./images/tmdb_select_api.jpeg)
+          </Accordion>
+     </Step>
+
+     <Step title="Select the **API** tab on the settings page">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) API tab](./images/tmdb_api_tab.jpeg)
+          </Accordion>
+     </Step>
+
+     <Step title="Tap **click here** under **Request an API Key** ">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) API request API key](./images/tmdb_request_key.jpeg)
+          </Accordion>
+     </Step>
+
+     <Step title="Select the developer option (suitable for starters or non-profit use)">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) API plans](./images/tmdb_sel_dev.jpeg)
+          </Accordion>
+     </Step>
+
+     <Step title="Agree to the **Terms of service**">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) terms of service](./images/terms_of_service.png)
+          </Accordion>
+     </Step>
+
+     <Step title="Fill in the application form on the new page (you can use any of your social links as the website URL)">
+          <Accordion title="Click to view image">
+               ![The Movie Database(TMDB) API application form](./images/tmdb_final.jpeg)
+          </Accordion>
+     </Step>
+</Steps>
+
 
 
 After submitting the application, you can access both your API key and Bearer token as seen below:
-![The Movie Database(TMDB) API application form](./images/tmdb_final.jpeg)

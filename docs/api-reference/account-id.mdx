@@ -11,7 +11,7 @@ Account ID is a unique identifier for an account on TMDB. It is required to add 
 There are two ways to get an Account ID. You can either get an Account ID directly as an application, or on behalf of a TMDB user in your app. 
 
 ### As an application
-Get your application's `api_key` and `access_token`, then send a `GET` request to [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) to retrieve your Account ID from the response object.
+Get your application's `api_key` and `access_token`, then send a `GET` request to [Get account details](/api-reference/accounts/get-account-details) to retrieve your Account ID from the response object.
 Below is an example:
 
 ```bash Example
@@ -22,14 +22,41 @@ curl --request GET \
 
 ### On behalf of a TMDB user
 Follow the steps below to retrieve the Account ID for a TMDB user within your app:
+<Steps>
+     <Step title="Generate a `session_id`">
+          Generate a unique `session_id` for the user. See how to generate a `session_id` [here]()
+     </Step>
 
-1. Generate a unique `session_id` for the user. See how to generate a `session_id` [here]().
-2. Send a `GET` request to the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint and add the `session_id` as a query parameter. Here is an example below:
+     <Step title="Get account details (including the ID)">
+           Send a `GET` request to the [Get account details](/api-reference/accounts/get-account-details) endpoint and add the
+          `session_id` as a query parameter. Here is an example below:
+          ```bash Example
+          curl --request GET \
+               --url 'https://api.themoviedb.org/3/account?session_id=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' \
+               --header 'Authorization: Bearer <your-access-token e.g eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies>'
+          ```
+     </Step>
+</Steps>
 
-```bash Example
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/account?session_id=79191836ddaa0da3df76a5ffef6f07ad6ab0c641' \
-     --header 'Authorization: Bearer <your-access-token e.g eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDJlNzYzODBkM2NiZGVmMmY2NjQzNzg3ZjkyMzZmYiIsIm5iZiI6MTczMzE3MDMzNi4yNDYsInN1YiI6IjY3NGUxNGEwMGU4M2U0YmUyNTJjZWQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZT61q1NoOlzVMBVMZJQ2sSZZQ7P7KZmtr8Vw19C0Ies>'
+
+
+The Account ID will be included in the response object as `id`. Below is an example:
+
+```bash Example response
+{
+     "avatar": {
+          "gravatar": {
+               "hash": "f35e00805bf2085dcc202ea42e3f4ba4"
+          },
+          "tmdb": {
+               "avatar_path": "/xy44UvpbTgzs9kWmp4C3fEaCl5h.png"
+          }
+     },
+     "id": 21666081
+     "include_adult": false
+     "iso_3166_1": "NG"
+     "iso_639_1": "en"
+     "name": "John David"
+     "username": "Javid"
+}
 ```
-
-The Account ID will be included in the response object as seen in the [Get account details](https://emiloju.mintlify.app/api-reference/accounts/get-account-details) endpoint. 
