@@ -4,36 +4,48 @@ description: 'Welcome to The Movie Database (TMDB) API documentation'
 icon: "door-open"
 ---
 
+Welcome to the API reference for version 3 of The Movie Database (TMDB) API. 
 ![The Movie Database(TMDB) logo](https://th.bing.com/th/id/OIP.U6pWMXeOjr1VZY8XQ5zDdwHaFW?rs=1&pid=ImgDetMain)
 
-[The Movie Database (TMDB)](https://www.themoviedb.org/) is a community built movie and TV database. Our database holds a large record of millions of movies and TV shows worldwide. 
-Every piece of data has been added by our amazing community dating back to 2008. 
-
-TMDB's strong international focus and breadth of data is largely unmatched and something we're 
-incredibly proud of. Put simply, we live and breathe community and that's precisely what makes us different.
+Here, you will learn the available authentication methods for the API, how to get your API credentials, the API sepcifics, and how to make successful requests to each endpoint. 
 
 Our API gives you access to our entire movie database. We provide you with 100+ endpoints to query the API for movie-related information, rate movies, like movies, etc for both personal and
 commercial use. Learn more [here](https://www.themoviedb.org/about).
 
+## Getting started
 
-## Top use cases
-Get started right away with our popular endpoints
+#### API Base URL
+
+Below is the API Base URL:
+
+```bash Base URL
+https://api.themoviedb.org/3
+```
+
+<Card title="Authentication" href="/api-reference/authentication" icon="key">
+    Learn how to access your API credentials and authenticate your app or script with the API.
+</Card>
+
+
+
+#### Top use cases
+Get started right away with any of our popular endpoints
 
 <CardGroup cols={2}>
-    <Card title="Retrieve Movie Information" icon="square-1" href="https://emiloju.mintlify.app/api-reference/movies/get-movie-details">
+    <Card title="Retrieve Movie Information" icon="square-1" href="/api-reference/movies/get-movie-details">
         Use the API to fetch detailed information about movies, including titles, descriptions, release dates, and ratings. 
         This is useful for building movie databases or integrating movie info into apps. 
     </Card>
 
-    <Card title="Search for Movies/TV Shows" icon="square-2" href="https://emiloju.mintlify.app/api-reference/search/get-collections">
+    <Card title="Search for Movies/TV Shows" icon="square-2" href="/api-reference/search/get-collections">
         Use the API to search the TMDB database for movies, TV shows, actors, and more by using search queries. Great for adding search functionality in movie apps.
     </Card>
 
-    <Card title="Get Trending Movies/TV Shows" icon="square-3" href="https://emiloju.mintlify.app/api-reference/trending/get-trending-items">
+    <Card title="Get Trending Movies/TV Shows" icon="square-3" href="/api-reference/trending/get-trending-items">
         Use the API to fetch trending movies and TV shows based on current popularity. Ideal for creating **Trending** sections in your app.
     </Card>
 
-    <Card title="Get Movie Recommendations" icon="square-4" href="https://emiloju.mintlify.app/api-reference/discover/discover-movies">
+    <Card title="Get Movie Recommendations" icon="square-4" href="/api-reference/discover/discover-movies">
         Use the recommendations endpoints to suggest movies similar to a given movie. Perfect for building recommendation engines in movie apps.
     </Card>
 </CardGroup>
