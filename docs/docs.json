@@ -50,6 +50,7 @@
       },
       {
         "tab": "API reference",
+        "icon": "webhook",
         "groups": [
           {
             "group": "Get Started",
@@ -75,6 +76,19 @@
           }
         ]
 
+      },
+
+      {
+        "tab": "Changelog",
+        "icon": "list-ul",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/changelog"
+            ]
+          }
+        ]
       }
     ],
     "global": {
@@ -96,7 +110,19 @@
       "type": "button",
       "label": "Sign in",
       "href": "https://www.themoviedb.org/login/"
-    }
+    },
+
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://www.themoviedb.org/talk/category/5047958519c29526b50017d6"
+      },
+
+      {
+        "label": "Service Status",
+        "href": "https://status.themoviedb.org/"
+      }
+    ]
   },
 
   "seo": {
